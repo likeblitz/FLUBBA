@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Font - Sunday Burger */
+@font-face {
+  font-family: 'Sunday Burger';
+  src: url('/src/assets/Sunday Burger.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer utilities {
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-3000 {
+    animation-delay: 3s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  
+  .text-stroke {
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+  }
+  
+  .text-stroke-thick {
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+  }
+}
+
+/* Custom bounce animation for character */
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -15px, 0);
+  }
+  70% {
+    transform: translate3d(0, -8px, 0);
+  }
+  90% {
+    transform: translate3d(0, -3px, 0);
+  }
+}
+
+/* Falling Cash Animation */
+.cash-bill {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Individual cash bill positions and timing */
+.cash-1 { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+.cash-2 { left: 20%; animation-duration: 10s; animation-delay: 0s; }
+.cash-3 { left: 30%; animation-duration: 7s; animation-delay: 0s; }
+.cash-4 { left: 40%; animation-duration: 9s; animation-delay: 0s; }
+.cash-5 { left: 50%; animation-duration: 11s; animation-delay: 0s; }
+.cash-6 { left: 60%; animation-duration: 8s; animation-delay: 0s; }
+.cash-7 { left: 70%; animation-duration: 9s; animation-delay: 0s; }
+.cash-8 { left: 80%; animation-duration: 10s; animation-delay: 0s; }
+.cash-9 { left: 90%; animation-duration: 7s; animation-delay: 0s; }
+.cash-10 { left: 15%; animation-duration: 12s; animation-delay: 0s; }
+
+/* Floating Particles Animation */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Particle variations */
+.particle-1 { left: 5%; animation-duration: 15s; animation-delay: 0s; font-size: 1.5rem; }
+.particle-2 { left: 15%; animation-duration: 18s; animation-delay: 2s; font-size: 1.2rem; }
+.particle-3 { left: 25%; animation-duration: 12s; animation-delay: 4s; font-size: 1.8rem; }
+.particle-4 { left: 35%; animation-duration: 20s; animation-delay: 1s; font-size: 1.4rem; }
+.particle-5 { left: 45%; animation-duration: 16s; animation-delay: 3s; font-size: 1.6rem; }
+.particle-6 { left: 55%; animation-duration: 14s; animation-delay: 5s; font-size: 1.3rem; }
+.particle-7 { left: 65%; animation-duration: 17s; animation-delay: 2s; font-size: 1.7rem; }
+.particle-8 { left: 75%; animation-duration: 13s; animation-delay: 4s; font-size: 1.5rem; }
+.particle-9 { left: 85%; animation-duration: 19s; animation-delay: 1s; font-size: 1.4rem; }
+.particle-10 { left: 95%; animation-duration: 15s; animation-delay: 3s; font-size: 1.6rem; }
+
+/* Pulsing Glow Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Rotating Border Animation */
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating-border {
+  position: relative;
+}
+
+.rotating-border::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd, #ff6b6b);
+  border-radius: inherit;
+  animation: rotate-border 3s linear infinite;
+  z-index: -1;
+}
+
+/* Shooting Stars */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: shoot linear infinite;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(-100px) translateY(100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, white, transparent);
+  transform: translateX(-50px);
+}
+
+.star-1 { top: 20%; animation-duration: 3s; animation-delay: 0s; }
+.star-2 { top: 40%; animation-duration: 2.5s; animation-delay: 1s; }
+.star-3 { top: 60%; animation-duration: 3.5s; animation-delay: 2s; }
+.star-4 { top: 80%; animation-duration: 2.8s; animation-delay: 0.5s; }
+
+/* Mobile responsive cash bills */
+@media (max-width: 768px) {
+  .cash-bill {
+    font-size: 1.5rem;
+  }
+  .particle {
+    font-size: 1rem !important;
+  }
+}
